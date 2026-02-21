@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro | MerqueEnvios</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="registro-container">
+
+<div class="logo">
+        <img src="image/logo_merqueenvios.jpg" alt="Logo MerqueEnvios">
+    </div>
+
+<h2>Registro MerqueEnvios</h2>
+
+    <form>
+        <div class="campo">
+            <label>Nombres completos</label>
+            <input type="text" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="campo">
+            <label>Edad</label>
+            <input type="number" placeholder="Ej: 25" required>
+        </div>
+
+        <div class="campo">
+            <label>Fecha de nacimiento</label>
+            <input type="date" required>
+             <div class="rojo">
+            <p>Fecha de nacimiento invalida</p>
+        </div>
+        </div>
+       
+
+        <div class="campo">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="correo@ejemplo.com" required>
+            <div class="rojo">
+<p>Esta direccion de correo es invalida</p>
+        </div>
+        </div>
+        
+
+        <div class="campo">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="Ej: 3001234567" required>
+        </div>
+
+        <div class="campo">
+            <label>Dirección</label>
+            <input type="text" placeholder="Ej: Calle 10 #20-30" required>
+        </div>
+
+        <button type="submit">Registrarse</button>
+    </form>
+</div>
+
+</body>
+</html>
