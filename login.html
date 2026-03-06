@@ -2,61 +2,84 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro | MerqueEnvios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Iniciar Sesión | MerqueEnvios</title>
     <link rel="stylesheet" href="login.css">
+    <!-- CryptoJS for SHA-256 password hashing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
-<div class="registro-container">
+<div class="login-container">
 
-<div class="logo">
-        <img src="image/logo_merqueenvios.jpg" alt="Logo MerqueEnvios">
+    <div class="logo">
+        <img src="logo_merqueenvios.jpg" alt="Logo MerqueEnvios">
     </div>
 
-<h2>Registro MerqueEnvios</h2>
+    <h2>Iniciar Sesión</h2>
 
-    <form>
-        <div class="campo">
-            <label>Nombres completos</label>
-            <input type="text" placeholder="Ej: Juan Pérez" required>
-        </div>
+    <div id="alerta-error" class="alerta alerta-error" role="alert" aria-live="assertive" style="display:none;"></div>
+    <div id="alerta-exito" class="alerta alerta-exito" role="alert" aria-live="assertive" style="display:none;"></div>
 
-        <div class="campo">
-            <label>Edad</label>
-            <input type="number" placeholder="Ej: 25" required>
-        </div>
+    <form id="loginForm" novalidate autocomplete="off">
 
         <div class="campo">
-            <label>Fecha de nacimiento</label>
-            <input type="date" required>
-             <div class="rojo">
-            <p>Fecha de nacimiento invalida</p>
-        </div>
-        </div>
-       
-
-        <div class="campo">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="correo@ejemplo.com" required>
-            <div class="rojo">
-<p>Esta direccion de correo es invalida</p>
-        </div>
-        </div>
-        
-
-        <div class="campo">
-            <label>Teléfono</label>
-            <input type="tel" placeholder="Ej: 3001234567" required>
+            <label for="email">Correo electrónico</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="correo@ejemplo.com"
+                required
+                autocomplete="username"
+                maxlength="100"
+                aria-describedby="email-error"
+            >
+            <span class="error-msg" id="email-error"></span>
         </div>
 
         <div class="campo">
-            <label>Dirección</label>
-            <input type="text" placeholder="Ej: Calle 10 #20-30" required>
+            <label for="password">Contraseña</label>
+            <div class="password-wrapper">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                    autocomplete="current-password"
+                    maxlength="64"
+                    aria-describedby="password-error"
+                >
+                <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar contraseña" tabindex="-1">
+                    <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+            <span class="error-msg" id="password-error"></span>
         </div>
 
-        <button type="submit">Registrarse</button>
+        <div class="campo-opciones">
+            <label class="recuerdame">
+                <input type="checkbox" id="recuerdame"> Recuérdame
+            </label>
+            <a href="#" class="olvidaste">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" id="btnLogin">Iniciar Sesión</button>
+
     </form>
+
+    <p class="registro-link">¿No tienes cuenta?</p>
+    <a href="registro.html" class="btn-registro">Crear cuenta nueva</a>
+
 </div>
 
+<script src="login.js"></script>
 </body>
 </html>

@@ -4,18 +4,7 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-.logo {
-    text-align: center;
-    margin-bottom: 15px;
-    border-radius: 10px;
-}
 
-.logo img {
-    width: 200px;
-    height: 85px;
-    display: inline-block;
-    border-radius: 10px;
-}
 body {
     background: linear-gradient(120deg, #603AE9, #8C71E2);
     min-height: 100vh;
@@ -24,21 +13,55 @@ body {
     justify-content: center;
 }
 
-.registro-container {
+.login-container {
     background: #ffffff;
-    padding: 30px;
+    padding: 35px 30px;
     width: 100%;
     max-width: 420px;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.registro-container h2 {
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    width: 200px;
+    height: 85px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.login-container h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
+/* Alertas */
+.alerta {
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.alerta-error {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #e74c3c;
+}
+
+.alerta-exito {
+    background-color: #eafaf1;
+    color: #1e8449;
+    border: 1px solid #27ae60;
+}
+
+/* Campos */
 .campo {
     margin-bottom: 15px;
 }
@@ -50,27 +73,106 @@ body {
     color: #555;
 }
 
-.campo input {
+.campo input[type="email"],
+.campo input[type="password"],
+.campo input[type="text"] {
     width: 100%;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
     outline: none;
+    transition: border-color 0.25s;
+    font-size: 15px;
 }
 
 .campo input:focus {
     border-color: #603AE9;
+    box-shadow: 0 0 0 2px rgba(96, 58, 233, 0.15);
 }
 
-.rojo {
-    width: 80%;
-    color: red;
+.campo input.input-error {
+    border-color: #e74c3c;
+}
+
+.campo input.input-valido {
+    border-color: #27ae60;
+}
+
+/* Wrapper contraseña con botón ojo */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex: 1;
+    padding-right: 42px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.toggle-password:hover {
+    color: #603AE9;
+}
+
+/* Mensajes de error por campo */
+.error-msg {
+    display: block;
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+/* Opciones (recuérdame + olvidé contraseña) */
+.campo-opciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
     font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 15px;
 }
 
-button {
+.recuerdame {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #555;
+}
+
+.recuerdame input[type="checkbox"] {
+    accent-color: #603AE9;
+    width: 15px;
+    height: 15px;
+}
+
+.olvidaste {
+    color: #603AE9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.olvidaste:hover {
+    color: #8C71E2;
+    text-decoration: underline;
+}
+
+/* Botón submit */
+button[type="submit"] {
     width: 100%;
     padding: 12px;
     background: #603AE9;
@@ -79,8 +181,64 @@ button {
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.25s;
+    letter-spacing: 0.5px;
 }
 
-button:hover {
+button[type="submit"]:hover:not(:disabled) {
     background: #8C71E2;
+}
+
+button[type="submit"]:disabled {
+    background: #b0a0f4;
+    cursor: not-allowed;
+}
+
+/* Enlace registro */
+.registro-link {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Botón ir a registro */
+.btn-registro {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    background: transparent;
+    border: 2px solid #603AE9;
+    border-radius: 6px;
+    color: #603AE9;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+    letter-spacing: 0.4px;
+}
+
+.btn-registro:hover {
+    background: #603AE9;
+    color: #ffffff;
+}
+
+/* Spinner dentro del botón */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
