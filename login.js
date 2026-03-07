@@ -1,4 +1,5 @@
-import './firebase-init.js';
+import { auth } from './firebase-init.js';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 /**
  * login.js — MerqueEnvios
@@ -372,5 +373,52 @@ import './firebase-init.js';
     window.addEventListener('beforeunload', function () {
         passwordInput.value = '';
     });
+
+    /* ─── Iniciar sesión con Google ─── */
+    const btnGoogle    = document.getElementById('btnGoogle');
+    const overlayGoogle = document.getElementById('overlay-google');
+
+    function mostrarOverlayGoogle() {
+        if (overlayGoogle) overlayGoogle.style.display = 'flex';
+    }
+
+    function ocultarOverlayGoogle() {
+        if (overlayGoogle) overlayGoogle.style.display = 'none';
+    }
+
+    if (btnGoogle) {
+        btnGoogle.addEventListener('click', function () {
+            limpiarAlertas();
+            btnGoogle.disabled = true;
+            mostrarOverlayGoogle();
+
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+                .then(function (result) {
+                    const user = result.user;
+                    sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+                        email: user.email,
+                        nombre: user.displayName,
+                        timestamp: Date.now()
+                    }));
+                    mostrarExito('¡Sesión iniciada con Google! Redirigiendo...');
+                    setTimeout(function () {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                })
+                .catch(function (error) {
+                    ocultarOverlayGoogle();
+                    btnGoogle.disabled = false;
+                    if (error.code === 'auth/popup-closed-by-user') {
+                        mostrarError('Cerraste la ventana de Google antes de completar el inicio de sesión.');
+                    } else if (error.code === 'auth/cancelled-popup-request') {
+                        // Ignorar: se abrió otro popup
+                    } else {
+                        mostrarError('No se pudo iniciar sesión con Google. Intenta de nuevo.');
+                        console.error('Google Sign-In error:', error);
+                    }
+                });
+        });
+    }
 
 })();
