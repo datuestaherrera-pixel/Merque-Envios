@@ -1,7 +1,9 @@
+import './firebase-init.js';
+
 /**
  * registro.js — MerqueEnvios
  * Validación completa del formulario de registro:
- * nombres, edad, fecha de nacimiento, correo, teléfono y dirección.
+ * nombres, edad, fecha de nacimiento, correo, teléfono, contraseña y confirmación.
  * Incluye validación cruzada edad ↔ fecha de nacimiento.
  */
 
@@ -15,14 +17,29 @@
     const fechaNacimientoInput = document.getElementById('fechaNacimiento');
     const emailInput          = document.getElementById('email');
     const telefonoInput       = document.getElementById('telefono');
-    const direccionInput      = document.getElementById('direccion');
+    const passwordInput       = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
 
     const nombreError         = document.getElementById('nombre-error');
     const edadError           = document.getElementById('edad-error');
     const fechaNacimientoError = document.getElementById('fechaNacimiento-error');
     const emailError          = document.getElementById('email-error');
     const telefonoError       = document.getElementById('telefono-error');
-    const direccionError      = document.getElementById('direccion-error');
+    const passwordError       = document.getElementById('password-error');
+    const confirmPasswordError = document.getElementById('confirmPassword-error');
+
+    /* ─── Toggle mostrar/ocultar contraseña ─── */
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const tipo = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = tipo;
+        this.setAttribute('aria-label', tipo === 'password' ? 'Mostrar contraseña' : 'Ocultar contraseña');
+    });
+
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+        const tipo = confirmPasswordInput.type === 'password' ? 'text' : 'password';
+        confirmPasswordInput.type = tipo;
+        this.setAttribute('aria-label', tipo === 'password' ? 'Mostrar contraseña' : 'Ocultar contraseña');
+    });
 
     /* ─── Utilidades ─── */
 
@@ -314,12 +331,22 @@
         }
     });
 
-    direccionInput.addEventListener('input', function () {
-        if (this.value.trim()) {
-            validarDireccion();
+    passwordInput.addEventListener('input', function () {
+        if (this.value) {
+            validarPassword();
+            if (confirmPasswordInput.value) validarConfirmPassword();
         } else {
-            direccionError.textContent = '';
-            direccionInput.classList.remove('input-error', 'input-valido');
+            passwordError.textContent = '';
+            passwordInput.classList.remove('input-error', 'input-valido');
+        }
+    });
+
+    confirmPasswordInput.addEventListener('input', function () {
+        if (this.value) {
+            validarConfirmPassword();
+        } else {
+            confirmPasswordError.textContent = '';
+            confirmPasswordInput.classList.remove('input-error', 'input-valido');
         }
     });
 
@@ -337,13 +364,17 @@
         btnSubmit.textContent = 'Registrando...';
 
         /* 3. Recopilar y sanitizar datos */
+        const passwordHash = typeof CryptoJS !== 'undefined'
+            ? CryptoJS.SHA256(passwordInput.value).toString()
+            : passwordInput.value;
+
         const datos = {
             nombre:          sanitizar(nombreInput.value.trim()),
             edad:            parseInt(edadInput.value.trim(), 10),
             fechaNacimiento: fechaNacimientoInput.value,
             email:           emailInput.value.trim().toLowerCase(),
             telefono:        telefonoInput.value.trim(),
-            direccion:       sanitizar(direccionInput.value.trim())
+            password:        passwordHash
         };
 
         /* 4. Enviar al backend */

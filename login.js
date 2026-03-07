@@ -1,3 +1,5 @@
+import './firebase-init.js';
+
 /**
  * login.js — MerqueEnvios
  * Seguridad: validación de campos, hashing SHA-256 (sin salt cliente),

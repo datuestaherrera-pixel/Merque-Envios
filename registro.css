@@ -56,6 +56,39 @@ body {
     border-radius: 6px;
     border: 1px solid #ccc;
     outline: none;
+    transition: border-color 0.25s;
+    font-size: 15px;
+}
+
+/* Wrapper contraseña con botón ojo */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex: 1;
+    padding-right: 42px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+    width: auto;
+}
+
+.toggle-password:hover {
+    color: #603AE9;
+    background: none;
 }
 
 .campo input:focus {
