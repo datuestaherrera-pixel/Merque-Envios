@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+// firebase-init.js — Inicialización de Firebase usando CDN globals
+// Los scripts de Firebase se cargan en el HTML antes de este archivo.
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDmyLDil5EIXJnHr2jbC_pl7ep4n3b6-zo",
   authDomain: "merque-envios.firebaseapp.com",
@@ -14,7 +11,7 @@ const firebaseConfig = {
   measurementId: "G-72HQT2J13M"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+// Inicializar Firebase (solo si no está ya inicializado)
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}

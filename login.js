@@ -1,5 +1,4 @@
-import { auth } from './firebase-init.js';
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+// No imports needed - firebase is a global from CDN
 
 /**
  * login.js — MerqueEnvios
@@ -392,8 +391,8 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
             btnGoogle.disabled = true;
             mostrarOverlayGoogle();
 
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider)
+            const provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider)
                 .then(function (result) {
                     const user = result.user;
                     sessionStorage.setItem(SESSION_KEY, JSON.stringify({
