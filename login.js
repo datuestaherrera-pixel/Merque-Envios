@@ -404,8 +404,10 @@
             mostrarOverlayGoogle();
 
             const provider = new firebase.auth.GoogleAuthProvider();
+            console.log('Iniciando Google Sign-In...');
             firebase.auth().signInWithPopup(provider)
                 .then(function (result) {
+                    console.log('Google Sign-In exitoso:', result.user);
                     const user = result.user;
                     sessionStorage.setItem(SESSION_KEY, JSON.stringify({
                         email: user.email,
