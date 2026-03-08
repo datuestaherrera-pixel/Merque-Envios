@@ -1,6 +1,8 @@
 // firebase-init.js — Inicialización de Firebase usando CDN globals
 // Los scripts de Firebase se cargan en el HTML antes de este archivo.
 
+console.log('firebase-init.js cargando...');
+
 const firebaseConfig = {
   apiKey: "AIzaSyDmyLDil5EIXJnHr2jbC_pl7ep4n3b6-zo",
   authDomain: "merque-envios.firebaseapp.com",
@@ -14,4 +16,7 @@ const firebaseConfig = {
 // Inicializar Firebase (solo si no está ya inicializado)
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  console.log('Firebase inicializado correctamente');
+} else {
+  console.log('Firebase ya estaba inicializado');
 }
