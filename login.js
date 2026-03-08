@@ -408,13 +408,17 @@
                 .catch(function (error) {
                     ocultarOverlayGoogle();
                     btnGoogle.disabled = false;
+                    console.error('Google Sign-In error:', error);
                     if (error.code === 'auth/popup-closed-by-user') {
                         mostrarError('Cerraste la ventana de Google antes de completar el inicio de sesión.');
                     } else if (error.code === 'auth/cancelled-popup-request') {
                         // Ignorar: se abrió otro popup
+                    } else if (error.code === 'auth/unauthorized-domain') {
+                        mostrarError('Dominio no autorizado. Contacta al administrador.');
+                    } else if (error.code === 'auth/operation-not-allowed') {
+                        mostrarError('Google Sign-In no está habilitado en Firebase Console.');
                     } else {
-                        mostrarError('No se pudo iniciar sesión con Google. Intenta de nuevo.');
-                        console.error('Google Sign-In error:', error);
+                        mostrarError('Error: ' + (error.message || 'No se pudo iniciar sesión con Google.'));
                     }
                 });
         });
