@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MerqueEnvios - Tu Supermercado Online</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navegación -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo_merqueenvios.jpg" alt="MerqueEnvios">
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="buscador" placeholder="Buscar productos, marcas, categorías...">
+                <button class="btn-buscar"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-user">
+                    <i class="fas fa-user"></i>
+                    <span>Iniciar sesión</span>
+                </a>
+                <a href="#" class="btn-carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="carrito-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menú de categorías -->
+    <nav class="categorias-nav">
+        <div class="categorias-container">
+            <a href="#" class="categoria-item"><i class="fas fa-apple-alt"></i> Frutas y Verduras</a>
+            <a href="#" class="categoria-item"><i class="fas fa-drumstick-bite"></i> Carnes y Pollo</a>
+            <a href="#" class="categoria-item"><i class="fas fa-fish"></i> Pescados y Mariscos</a>
+            <a href="#" class="categoria-item"><i class="fas fa-cheese"></i> Lácteos y Huevos</a>
+            <a href="#" class="categoria-item"><i class="fas fa-bread-slice"></i> Panadería</a>
+            <a href="#" class="categoria-item"><i class="fas fa-wine-bottle"></i> Bebidas</a>
+            <a href="#" class="categoria-item"><i class="fas fa-cookie"></i> Abarrotes</a>
+            <a href="#" class="categoria-item"><i class="fas fa-paw"></i> Mascotas</a>
+        </div>
+    </nav>
+
+    <!-- Banner principal -->
+    <section class="banner">
+        <div class="banner-container">
+            <div class="banner-slide active">
+                <div class="banner-content">
+                    <span class="banner-tag">¡Super Ofertas!</span>
+                    <h1>Hasta 50% de descuento</h1>
+                    <p>En productos seleccionados deecnología y hogar</p>
+                    <a href="#productos-oferta" class="btn-banner">Ver ofertas</a>
+                </div>
+                <div class="banner-image">
+                    <img src="https://via.placeholder.com/600x350/603AE9/ffffff?text=Super+Descuentos" alt="Ofertas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de ofertas -->
+    <section class="seccion-ofertas" id="productos-oferta">
+        <div class="seccion-header">
+            <h2><i class="fas fa-fire"></i> Ofertas de la Semana</h2>
+            <a href="#" class="ver-todo">Ver todo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="productos-grid">
+            <!-- Producto 1 -->
+            <div class="producto-card">
+                <span class="descuento-badge">-30%</span>
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Arroz+1kg" alt="Arroz">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Abarrotes</span>
+                    <h3>Arroz Diana Premium 1kg</h3>
+                    <div class="precio">
+                        <span class="precio-anterior">$5.800</span>
+                        <span class="precio-actual">$4.060</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto-card">
+                <span class="descuento-badge">-25%</span>
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Leche+1L" alt="Leche">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Lácteos</span>
+                    <h3>Leche Alpina Entera 1L</h3>
+                    <div class="precio">
+                        <span class="precio-anterior">$4.500</span>
+                        <span class="precio-actual">$3.375</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto-card">
+                <span class="descuento-badge">-40%</span>
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Huevos+12" alt="Huevos">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Huevos</span>
+                    <h3>Huevos AAx30 Campero</h3>
+                    <div class="precio">
+                        <span class="precio-anterior">$18.000</span>
+                        <span class="precio-actual">$10.800</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto-card">
+                <span class="descuento-badge">-35%</span>
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Pollo+1kg" alt="Pollo">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Carnes</span>
+                    <h3>Pollo Entero Fresco 1kg</h3>
+                    <div class="precio">
+                        <span class="precio-anterior">$12.500</span>
+                        <span class="precio-actual">$8.125</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto-card">
+                <span class="descuento-badge">-20%</span>
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Papa+1kg" alt="Papa">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Frutas y Verduras</span>
+                    <h3>Papa Pastusa 1kg</h3>
+                    <div class="precio">
+                        <span class="precio-anterior">$3.500</span>
+                        <span class="precio-actual">$2.800</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección categorías destacadas -->
+    <section class="seccion-categorias">
+        <div class="seccion-header">
+            <h2><i class="fas fa-th"></i> Categorías Populares</h2>
+        </div>
+        
+        <div class="categorias-grid">
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-apple-alt"></i></div>
+                <span>Frutas y Verduras</span>
+            </a>
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-drumstick-bite"></i></div>
+                <span>Carnes y Pollo</span>
+            </a>
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-cheese"></i></div>
+                <span>Lácteos</span>
+            </a>
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-wine-bottle"></i></div>
+                <span>Bebidas</span>
+            </a>
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-cookie"></i></div>
+                <span>Abarrotes</span>
+            </a>
+            <a href="#" class="categoria-card">
+                <div class="categoria-icon"><i class="fas fa-paw"></i></div>
+                <span>Mascotas</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección productos destacados -->
+    <section class="seccion-destacados">
+        <div class="seccion-header">
+            <h2><i class="fas fa-star"></i> Los Más Vendidos</h2>
+            <a href="#" class="ver-todo">Ver todo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="productos-grid">
+            <!-- Producto 6 -->
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Pan+Integral" alt="Pan">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Panadería</span>
+                    <h3>Pan Integral Bimodal</h3>
+                    <div class="precio">
+                        <span class="precio-actual">$5.900</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Aceite+1L" alt="Aceite">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Abarrotes</span>
+                    <h3>Aceite Gourmet 1L</h3>
+                    <div class="precio">
+                        <span class="precio-actual">$18.500</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Fideos+400g" alt="Fideos">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Abarrotes</span>
+                    <h3>Fideos Don Victor 400g</h3>
+                    <div class="precio">
+                        <span class="precio-actual">$3.200</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 9 -->
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Yogurt+1L" alt="Yogurt">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Lácteos</span>
+                    <h3>Yogurt Griego 1L</h3>
+                    <div class="precio">
+                        <span class="precio-actual">$7.900</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+
+            <!-- Producto 10 -->
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="https://via.placeholder.com/200x200/f5f5f5/666666?text=Jamón" alt="Jamón">
+                </div>
+                <div class="producto-info">
+                    <span class="categoria">Carnes Frías</span>
+                    <h3>Jamón Ahorro 500g</h3>
+                    <div class="precio">
+                        <span class="precio-actual">$12.900</span>
+                    </div>
+                    <button class="btn-agregar"><i class="fas fa-cart-plus"></i> Agregar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner secundario -->
+    <section class="banner-secundario">
+        <div class="banner-sec-container">
+            <div class="banner-sec-item">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <h3>Envíos a Domicilio</h3>
+                    <p>Recibe tus compras en la puerta de tu casa</p>
+                </div>
+            </div>
+            <div class="banner-sec-item">
+                <i class="fas fa-store"></i>
+                <div>
+                    <h3>Recoge en Tienda</h3>
+                    <p>Compra online y pasa a retirar sin hacer cola</p>
+                </div>
+            </div>
+            <div class="banner-sec-item">
+                <i class="fas fa-percent"></i>
+                <div>
+                    <h3>Siempre en Oferta</h3>
+                    <p>Descuentos exclusivos todos los días</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>MerqueEnvios</h4>
+                <p>Tu supermercado online de confianza. Compras seguras y entregas a domicilio.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Quiénes Somos</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contáctenos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Frutas y Verduras</a></li>
+                    <li><a href="#">Carnes y Pollo</a></li>
+                    <li><a href="#">Lácteos</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 01-8000-123456</li>
+                    <li><i class="fas fa-envelope"></i> servicio@merqueenvios.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MerqueEnvios. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
