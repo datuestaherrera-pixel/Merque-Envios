@@ -399,6 +399,7 @@
 
     if (btnGoogle) {
         btnGoogle.addEventListener('click', function () {
+            alert('Botón clickeado, iniciando redirect...');
             limpiarAlertas();
             btnGoogle.disabled = true;
 
@@ -425,6 +426,7 @@
         })
         .catch(function (error) {
             console.error('Google redirect error:', error);
+            alert('Error: ' + (error.message || error.code || 'desconocido'));
             if (error.code === 'auth/unauthorized-domain') {
                 mostrarError('Dominio no autorizado. Contacta al administrador.');
             } else if (error.code === 'auth/operation-not-allowed') {
