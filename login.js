@@ -401,40 +401,38 @@
         btnGoogle.addEventListener('click', function () {
             limpiarAlertas();
             btnGoogle.disabled = true;
-            mostrarOverlayGoogle();
 
             const provider = new firebase.auth.GoogleAuthProvider();
-            console.log('Iniciando Google Sign-In...');
-            firebase.auth().signInWithPopup(provider)
-                .then(function (result) {
-                    console.log('Google Sign-In exitoso:', result.user);
-                    const user = result.user;
-                    sessionStorage.setItem(SESSION_KEY, JSON.stringify({
-                        email: user.email,
-                        nombre: user.displayName,
-                        timestamp: Date.now()
-                    }));
-                    ocultarOverlayGoogle();
-                    // Redirigir a login.html con mensaje de éxito
-                    window.location.href = 'login.html?google_login=success';
-                })
-                .catch(function (error) {
-                    ocultarOverlayGoogle();
-                    btnGoogle.disabled = false;
-                    console.error('Google Sign-In error:', error);
-                    if (error.code === 'auth/popup-closed-by-user') {
-                        mostrarError('Cerraste la ventana de Google antes de completar el inicio de sesión.');
-                    } else if (error.code === 'auth/cancelled-popup-request') {
-                        // Ignorar: se abrió otro popup
-                    } else if (error.code === 'auth/unauthorized-domain') {
-                        mostrarError('Dominio no autorizado. Contacta al administrador.');
-                    } else if (error.code === 'auth/operation-not-allowed') {
-                        mostrarError('Google Sign-In no está habilitado en Firebase Console.');
-                    } else {
-                        mostrarError('Error: ' + (error.message || 'No se pudo iniciar sesión con Google.'));
-                    }
-                });
+            console.log('Iniciando Google Sign-In con redirect...');
+            
+            firebase.auth().signInWithRedirect(provider);
         });
     }
+
+    /* ─── Verificar resultado de redirect ─── */
+    firebase.auth().getRedirectResult()
+        .then(function (result) {
+            console.log('Google redirect resultado:', result);
+            if (result.user) {
+                const user = result.user;
+                sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+                    email: user.email,
+                    nombre: user.displayName,
+                    timestamp: Date.now()
+                }));
+                window.location.href = 'login.html?google_login=success';
+            }
+        })
+        .catch(function (error) {
+            console.error('Google redirect error:', error);
+            if (error.code === 'auth/unauthorized-domain') {
+                mostrarError('Dominio no autorizado. Contacta al administrador.');
+            } else if (error.code === 'auth/operation-not-allowed') {
+                mostrarError('Google Sign-In no está habilitado en Firebase Console.');
+            } else if (error.code) {
+                mostrarError('Error: ' + (error.message || 'No se pudo iniciar sesión con Google.'));
+            }
+            // Si no hay usuario y hay error, no hacer nada (el usuario probablemente canceló)
+        });
 
 })();
