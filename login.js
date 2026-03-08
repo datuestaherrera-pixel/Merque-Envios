@@ -261,6 +261,18 @@
         }
     })();
 
+    /* ─── Verificar si vino de login con Google ─── */
+    (function verificarGoogleLogin() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('google_login') === 'success') {
+            // Limpiar la URL
+            window.history.replaceState({}, document.title, 'login.html');
+            // Mostrar mensaje de éxito
+            const usuario = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}');
+            mostrarExito('¡Bienvenido! Has iniciado sesión con Google como ' + (usuario.email || ''));
+        }
+    })();
+
     /* ─── Submit del formulario ─── */
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -400,10 +412,9 @@
                         nombre: user.displayName,
                         timestamp: Date.now()
                     }));
-                    mostrarExito('¡Sesión iniciada con Google! Redirigiendo...');
-                    setTimeout(function () {
-                        window.location.href = 'index.html';
-                    }, 1500);
+                    ocultarOverlayGoogle();
+                    // Redirigir a login.html con mensaje de éxito
+                    window.location.href = 'login.html?google_login=success';
                 })
                 .catch(function (error) {
                     ocultarOverlayGoogle();
