@@ -399,12 +399,14 @@
 
     if (btnGoogle) {
         btnGoogle.addEventListener('click', function () {
-            alert('Botón clickeado, iniciando redirect...');
+            if (!firebase.apps.length) {
+                alert('Firebase no está inicializado. Recargá la página.');
+                return;
+            }
             limpiarAlertas();
             btnGoogle.disabled = true;
 
             const provider = new firebase.auth.GoogleAuthProvider();
-            console.log('Iniciando Google Sign-In con redirect...');
             
             firebase.auth().signInWithRedirect(provider);
         });

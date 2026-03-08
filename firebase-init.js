@@ -2,6 +2,7 @@
 // Los scripts de Firebase se cargan en el HTML antes de este archivo.
 
 console.log('firebase-init.js cargando...');
+console.log('firebase disponible:', typeof firebase);
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmyLDil5EIXJnHr2jbC_pl7ep4n3b6-zo",
@@ -14,9 +15,13 @@ const firebaseConfig = {
 };
 
 // Inicializar Firebase (solo si no está ya inicializado)
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-  console.log('Firebase inicializado correctamente');
+if (typeof firebase !== 'undefined' && firebase.apps) {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+        console.log('Firebase inicializado correctamente');
+    } else {
+        console.log('Firebase ya estaba inicializado');
+    }
 } else {
-  console.log('Firebase ya estaba inicializado');
+    console.error('Firebase no está disponible. Asegúrate de que los scripts de Firebase estén cargados.');
 }
