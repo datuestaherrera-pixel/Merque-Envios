@@ -170,7 +170,7 @@ a {
 .banner-slide {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 40px;
 }
 
@@ -840,6 +840,7 @@ a {
     .banner-slide {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .banner-content {
