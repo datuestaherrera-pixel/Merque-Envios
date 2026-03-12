@@ -335,3 +335,116 @@ button[type="submit"]:disabled {
     animation: spin 0.7s linear infinite;
     margin-right: 0;
 }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .login-box {
+        padding: 25px 20px;
+    }
+
+    .login-box h2 {
+        font-size: 22px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .campo-opciones {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .btn-google {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .btn-google img {
+        width: 18px;
+        height: 18px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .btn-registro {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .registro-link {
+        font-size: 13px;
+    }
+
+    .olvide-contrasena {
+        font-size: 13px;
+    }
+
+    .recordarme label {
+        font-size: 13px;
+    }
+
+    .google-card {
+        padding: 15px;
+    }
+
+    .overlay-google-card {
+        padding: 20px;
+    }
+
+    .overlay-google-card img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .overlay-google-card p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .login-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .login-box {
+        padding: 20px 15px;
+    }
+
+    .login-box h2 {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

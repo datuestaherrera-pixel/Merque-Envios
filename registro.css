@@ -138,6 +138,84 @@ button:hover {
     border-color: #e74c3c;
 }
 
+/* Responsive */
+@media (max-width: 480px) {
+    .registro-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .registro-box {
+        padding: 25px 20px;
+    }
+
+    .registro-box h2 {
+        font-size: 22px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .campo {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .campo input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .password-wrapper input {
+        padding-right: 40px;
+    }
+
+    .toggle-password {
+        padding: 6px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .iniciar-link {
+        font-size: 13px;
+    }
+
+    .iniciar-link a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+    .registro-container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .registro-box {
+        padding: 20px 15px;
+    }
+
+    .registro-box h2 {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
 .campo input.input-valido {
     border-color: #27ae60;
 }
