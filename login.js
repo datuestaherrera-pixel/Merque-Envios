@@ -10,6 +10,16 @@
 (function () {
     'use strict';
 
+    /* ─── Verificar si ya está autenticado ─── */
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // Ya está logueado, redirigir al inicio
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
     /* ─── Configuración de seguridad ─── */
     const MAX_INTENTOS       = 5;     // intentos fallidos antes de bloquear
     const BLOQUEO_MS         = 60000; // bloqueo de 60 segundos

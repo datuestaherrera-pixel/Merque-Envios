@@ -25,3 +25,29 @@ if (typeof firebase !== 'undefined' && firebase.apps) {
 } else {
     console.error('Firebase no está disponible. Asegúrate de que los scripts de Firebase estén cargados.');
 }
+
+// Configurar persistencia de sesión (LOCAL = persiste entre sesiones del navegador)
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    console.log('Persistencia de Auth configurada: LOCAL');
+    // Escuchar cambios de autenticación
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log('Usuario autenticado:', user.email);
+        // Guardar en sessionStorage para acceso rápido
+        sessionStorage.setItem('usuario_actual', JSON.stringify({
+          email: user.email,
+          nombre: user.displayName,
+          uid: user.uid,
+          foto: user.photoURL,
+          timestamp: Date.now()
+        }));
+      } else {
+        console.log('No hay usuario autenticado');
+        sessionStorage.removeItem('usuario_actual');
+      }
+    });
+  })
+  .catch((error) => {
+    console.error('Error al configurar persistencia:', error);
+  });
