@@ -308,69 +308,6 @@
         </div>
     </section>
 
-    <!-- Panel de Admin -->
-    <section id="admin-panel" class="admin-panel" style="display: none;">
-        <div class="admin-container">
-            <div class="admin-header">
-                <h2><i class="fas fa-cogs"></i> Panel de Administración</h2>
-                <button class="btn-volver" onclick="window.location.hash=''; window.location.reload();">
-                    <i class="fas fa-arrow-left"></i> Volver a la tienda
-                </button>
-            </div>
-            
-            <div class="admin-content">
-                <!-- Sección para pegar imagen -->
-                <div class="admin-section">
-                    <h3><i class="fas fa-paste"></i> Pegar Imagen de Producto</h3>
-                    <p class="admin-hint">Haz clic en el área下方 y pega (Ctrl+V) una imagen del producto</p>
-                    <div id="image-paste-area" class="image-paste-area">
-                        <i class="fas fa-image"></i>
-                        <span>Pega una imagen aquí (Ctrl+V)</span>
-                    </div>
-                    <div id="preview-container" class="preview-container" style="display: none;">
-                        <img id="pasted-image-preview" src="" alt="Vista previa">
-                        <div class="image-actions">
-                            <button id="copy-image-btn" class="btn-admin-action">
-                                <i class="fas fa-copy"></i> Copiar Imagen
-                            </button>
-                            <button id="clear-image-btn" class="btn-admin-action btn-danger">
-                                <i class="fas fa-trash"></i> Limpiar
-                            </button>
-                        </div>
-                        <div class="image-url-box">
-                            <label>URL de la imagen:</label>
-                            <input type="text" id="image-url-output" readonly placeholder="La URL se generará al pegar la imagen">
-                            <button id="copy-url-btn" class="btn-admin-action">
-                                <i class="fas fa-copy"></i> Copiar URL
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sección de productos existentes para copiar sus imágenes -->
-                <div class="admin-section">
-                    <h3><i class="fas fa-images"></i> Imágenes de Productos Existentes</h3>
-                    <p class="admin-hint">Haz clic en cualquier imagen de producto para copiarla</p>
-                    <div class="admin-products-grid" id="admin-products-grid">
-                        <!-- Los productos se cargarán aquí -->
-                    </div>
-                </div>
-                
-                <!-- Campo para nueva URL de imagen -->
-                <div class="admin-section">
-                    <h3><i class="fas fa-link"></i> Nueva Imagen (URL)</h3>
-                    <input type="text" id="new-image-url" class="admin-input" placeholder="Pega la URL de la imagen aquí">
-                    <button id="test-image-btn" class="btn-admin-action">
-                        <i class="fas fa-eye"></i> Verificar Imagen
-                    </button>
-                    <div id="test-image-preview" class="test-preview" style="display: none;">
-                        <img src="" alt="Test">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
