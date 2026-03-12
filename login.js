@@ -276,10 +276,9 @@
         const params = new URLSearchParams(window.location.search);
         if (params.get('google_login') === 'success') {
             // Limpiar la URL
-            window.history.replaceState({}, document.title, 'login.html');
-            // Mostrar mensaje de éxito
-            const usuario = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}');
-            mostrarExito('¡Bienvenido! Has iniciado sesión con Google como ' + (usuario.email || ''));
+            window.history.replaceState({}, document.title, 'index.html');
+            // Redirigir al index
+            window.location.href = 'index.html';
         }
     })();
 
@@ -433,7 +432,7 @@
                     nombre: user.displayName,
                     timestamp: Date.now()
                 }));
-                window.location.href = 'login.html?google_login=success';
+                window.location.href = 'index.html';
             }
         })
         .catch(function (error) {
