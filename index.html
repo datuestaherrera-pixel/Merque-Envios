@@ -24,9 +24,13 @@
             </div>
 
             <div class="header-actions">
-                <a href="login.html" class="btn-user">
+                <a href="login.html" class="btn-user" id="btnUser">
                     <i class="fas fa-user"></i>
-                    <span>Iniciar sesión</span>
+                    <span id="userName">Iniciar sesión</span>
+                </a>
+                <a href="#" class="btn-logout" id="btnLogout" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar sesión</span>
                 </a>
                 <a href="#" class="btn-carrito">
                     <i class="fas fa-shopping-cart"></i>
@@ -352,6 +356,7 @@
         </div>
     </footer>
 
+    <script src="firebase-init.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

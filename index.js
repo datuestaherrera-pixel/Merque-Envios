@@ -6,6 +6,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para inicializar la tienda principal
 function initMainStore() {
+    // Verificar si hay usuario logueado y actualizar el header
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+        firebase.auth().onAuthStateChanged(function(user) {
+            const btnUser = document.getElementById('btnUser');
+            const userName = document.getElementById('userName');
+            const btnLogout = document.getElementById('btnLogout');
+            
+            if (user) {
+                // Usuario logueado - mostrar nombre
+                const nombre = user.displayName || user.email.split('@')[0];
+                userName.textContent = nombre;
+                btnUser.href = '#'; // Ya no va a login
+                btnLogout.style.display = 'flex';
+                console.log('Usuario logueado:', user.email);
+            } else {
+                // No hay usuario - mostrar "Iniciar sesión"
+                userName.textContent = 'Iniciar sesión';
+                btnUser.href = 'login.html';
+                btnLogout.style.display = 'none';
+            }
+        });
+        
+        // Botón de cerrar sesión
+        document.getElementById('btnLogout').addEventListener('click', function(e) {
+            e.preventDefault();
+            firebase.auth().signOut().then(function() {
+                window.location.reload();
+            });
+        });
+    }
+    
     // Carrito de compras
     let carrito = [];
     const carritoBadge = document.querySelector('.carrito-badge');

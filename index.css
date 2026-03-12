@@ -95,6 +95,23 @@ a {
     transform: translateY(-2px);
 }
 
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #e74c3c;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
+
 .btn-carrito {
     position: relative;
 }

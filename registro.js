@@ -404,12 +404,13 @@ import './firebase-init.js';
             return response.json();
         })
         .then(function () {
-            mostrarAlerta('¡Registro exitoso! Redirigiendo al inicio de sesión...', 'exito');
+            mostrarAlerta('¡Registro exitoso! Redirigiendo...', 'exito');
             btnSubmit.textContent = 'Registro completado';
 
+            // Redirigir directamente al index (ya que el usuario queda logueado automáticamente)
             setTimeout(function () {
-                window.location.href = 'login.html';
-            }, 2000);
+                window.location.href = 'index.html';
+            }, 1500);
         })
         .catch(function (err) {
             btnSubmit.disabled  = false;
